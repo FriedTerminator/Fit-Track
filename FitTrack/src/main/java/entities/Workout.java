@@ -8,4 +8,22 @@ public class Workout {
 
     @ManyToOne
     private WorkoutExcercise workoutExcercise;
+
+    public Long getSet() {
+        return set;
+    }
+
+    public void setSet(Long set) {
+        this.set = set;
+    }
+
+    public Long getReps() {
+        return reps;
+    }
+
+    public void setReps(Long reps) {
+        this.reps = reps;
+    }
+
+
 }
