@@ -8,8 +8,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import repository.UserRepository;
 
-import java.util.Optional;
-
 @Service
 public class UserService {
     @Autowired
@@ -40,5 +38,11 @@ public class UserService {
                 .ifPresent(existingUser -> {
                     throw new UserAlreadyExistsException("Email is already in use");
                 });
+    }
+
+    @Transactional
+    public void deleteUser(Long id) {
+        User user = getUserById(id);
+        userRepository.delete(user);
     }
 }

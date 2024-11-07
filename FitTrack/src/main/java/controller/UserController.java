@@ -21,6 +21,10 @@ public class UserController {
     @Autowired
     private MapValidationErrorService mapValidationErrorService;
 
+    public UserController(UserService userService) {
+        this.userService = userService;
+    }
+
     @GetMapping("/{userId}")
     public ResponseEntity<?> getUserById(@PathVariable Long userId) {
         User user = userService.getUserById(userId);
@@ -36,6 +40,12 @@ public class UserController {
         User newUser = userService.createNewUser(user);
 
         return new ResponseEntity<>(newUser, HttpStatus.CREATED);
+    }
+
+    @DeleteMapping("")
+    public ResponseEntity<?> deleteUser(@PathVariable Long id) {
+        userService.deleteUser(id);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 }
 
