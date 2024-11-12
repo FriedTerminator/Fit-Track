@@ -48,7 +48,6 @@ public class ExerciseService {
         existingExercise.setName(exerciseDetails.getName());
         existingExercise.setMuscleGroup(exerciseDetails.getMuscleGroup());
         existingExercise.setDescription(exerciseDetails.getDescription());
-        existingExercise.setDifficultyLevel(exerciseDetails.getDifficultyLevel());
 
         return exerciseRepository.save(existingExercise);
     }

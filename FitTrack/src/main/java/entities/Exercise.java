@@ -25,9 +25,6 @@ public class Exercise {
     @Column(name = "description")
     private String description;
 
-    @Column(name = "difficulty_level")
-    private String difficultyLevel;
-
     // Enum for muscle groups
     public enum MuscleGroup {
         CHEST,
@@ -37,7 +34,8 @@ public class Exercise {
     }
 
     // Constructors
-    public Exercise() {}
+    public Exercise() {
+    }
 
     public Exercise(String name, MuscleGroup muscleGroup) {
         this.name = name;
@@ -75,13 +73,5 @@ public class Exercise {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public String getDifficultyLevel() {
-        return difficultyLevel;
-    }
-
-    public void setDifficultyLevel(String difficultyLevel) {
-        this.difficultyLevel = difficultyLevel;
     }
 }
